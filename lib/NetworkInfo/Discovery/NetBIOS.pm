@@ -6,7 +6,7 @@ use Net::Netmask;
 use NetworkInfo::Discovery::Detect;
 
 { no strict;
-  $VERSION = '0.02';
+  $VERSION = '0.03';
   @ISA = qw(NetworkInfo::Discovery::Detect);
 }
 
@@ -16,7 +16,7 @@ NetworkInfo::Discovery::NetBIOS - NetworkInfo::Discovery extension to find NetBI
 
 =head1 VERSION
 
-Version 0.02
+Version 0.03
 
 =head1 SYNOPSIS
 
@@ -109,6 +109,7 @@ sub do_it {
                     $host{netbios}{node} = $rr->name if $rr->suffix == 0x00 and $rr->G eq 'UNIQUE';
                     $host{netbios}{zone} = $rr->name if $rr->suffix == 0x00 and $rr->G eq 'GROUP';
                 }
+                
                 push @hosts, { %host };
             }
         }

@@ -1,8 +1,9 @@
 --- #YAML:1.0
 name: NetworkInfo-Discovery-NetBIOS
-version: 0.02
-author: |-
-  Sébastien Aperghis-Tramoni <sebastien@aperghis.net>
+version: 0.03
+author:
+  - |-
+    Sébastien Aperghis-Tramoni <sebastien@aperghis.net>
 abstract: |-
   NetworkInfo::Discovery extension to find NetBIOS services
 license: perl
@@ -14,5 +15,5 @@ requires:
 provides:
   NetworkInfo::Discovery::NetBIOS:
     file: lib/NetworkInfo/Discovery/NetBIOS.pm
-    version: 0.02
-generated_by: Module::Build version 0.25
+    version: 0.03
+generated_by: Module::Build version 0.26
