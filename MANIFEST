@@ -1,0 +1,14 @@
+Build.PL
+Makefile.PL
+Changes
+MANIFEST
+META.yml
+README
+lib/NetworkInfo/Discovery/NetBIOS.pm
+eg/nbdisc.pl
+t/00load.t
+t/01api.t
+t/distchk.t
+t/podcover.t
+t/pod.t
+t/portfs.t
