@@ -8,6 +8,7 @@ WriteMakefile(
     ABSTRACT_FROM       => 'lib/NetworkInfo/Discovery/NetBIOS.pm',
     PL_FILES            => {},
     PREREQ_PM => {
+        'Carp' => 0,
         'NetworkInfo::Discovery' => 0.12, 
         'Net::NBName' => 0.25, 
         'Test::More' => 0,

@@ -7,6 +7,7 @@ my $builder = Module::Build->new(
     dist_author         => 'Sébastien Aperghis-Tramoni <sebastien@aperghis.net>',
     dist_version_from   => 'lib/NetworkInfo/Discovery/NetBIOS.pm',
     requires => {
+        'Carp' => 0,
         'NetworkInfo::Discovery' => 0.12, 
         'Net::NBName' => 0.25, 
         'Test::More' => 0,

@@ -1,11 +1,12 @@
 package NetworkInfo::Discovery::NetBIOS;
 use strict;
+use Carp;
 use Net::NBName;
 use Net::Netmask;
 use NetworkInfo::Discovery::Detect;
 
 { no strict;
-  $VERSION = '0.01';
+  $VERSION = '0.02';
   @ISA = qw(NetworkInfo::Discovery::Detect);
 }
 
@@ -15,7 +16,7 @@ NetworkInfo::Discovery::NetBIOS - NetworkInfo::Discovery extension to find NetBI
 
 =head1 VERSION
 
-Version 0.01
+Version 0.02
 
 =head1 SYNOPSIS
 
@@ -43,7 +44,23 @@ hosts and services using the NetBIOS protocol.
 
 Create and return a new object. 
 
+B<Options>
 
+=over 4
+
+=item *
+
+C<hosts> - expects a scalar or an arrayref of IP addresses in CIDR notation
+
+=back
+
+B<Example>
+
+    # with a scalar argument
+    my $scanner = new NetworkInfo::Discovery::NetBIOS hosts => '192.168.0.0/24;
+
+    # with an arrayref
+    my $scanner = new NetworkInfo::Discovery::NetBIOS hosts => [ qw(192.168.0.0/24) ];
 
 =cut
 
@@ -77,7 +94,7 @@ sub do_it {
     my @hosts = ();
     my $netbios = new Net::NBName;
     
-    for my $host (pop @{$self->{_hosts_to_scan}}) {
+    for my $host (@{$self->{_hosts_to_scan}}) {
         for my $ip (Net::Netmask->new($host)->enumerate) {
             # trying to find status information on each IP address
             my %host = ();
@@ -104,15 +121,27 @@ sub do_it {
     return $self->get_interfaces
 }
 
-=item hosts
+=item hosts()
 
-Add hosts to scan.
+Add hosts or networks to the scan list. Expects addresses in CIDR notation. 
+
+B<Examples>
+
+    $scanner->hosts('192.168.4.53');     # add one host
+    $scanner->hosts('192.168.5.48/29');  # add a subnet
+    $scanner->hosts(qw(192.168.6.0/30 10.0.0.3/28));  # add two subnets
 
 =cut
 
 sub hosts {
     my $self = shift;
-    push @{$self->{_hosts_to_scan}}, @{$_[0]};
+    if(ref $_[0] eq 'ARRAY') {
+        push @{$self->{_hosts_to_scan}}, @{$_[0]}
+    } elsif(ref $_[0]) {
+        croak "Don't know how to deal with a ", lc(ref($_[0])), "ref."
+    } else {
+        push @{$self->{_hosts_to_scan}}, @_
+    }
 }
 
 =back

@@ -1,5 +1,8 @@
 Revision history for NetworkInfo-Discovery-NetBIOS
 
-0.01    Date/time
+0.02    2004.08.28
+        Added t/10hosts.t
+
+0.01    2004.09.28
         First version, released on an unsuspecting world.
 
