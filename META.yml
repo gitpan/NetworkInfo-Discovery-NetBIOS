@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name: NetworkInfo-Discovery-NetBIOS
-version: 0.04
+version: 0.05
 author:
   - |-
     Sébastien Aperghis-Tramoni <sebastien@aperghis.net>
@@ -16,5 +16,5 @@ requires:
 provides:
   NetworkInfo::Discovery::NetBIOS:
     file: lib/NetworkInfo/Discovery/NetBIOS.pm
-    version: 0.04
+    version: 0.05
 generated_by: Module::Build version 0.2607

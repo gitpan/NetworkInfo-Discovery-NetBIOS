@@ -6,7 +6,7 @@ use Net::Netmask;
 use NetworkInfo::Discovery::Detect;
 
 { no strict;
-  $VERSION = '0.04';
+  $VERSION = '0.05';
   @ISA = qw(NetworkInfo::Discovery::Detect);
 }
 
@@ -16,7 +16,7 @@ NetworkInfo::Discovery::NetBIOS - NetworkInfo::Discovery extension to find NetBI
 
 =head1 VERSION
 
-Version 0.04
+Version 0.05
 
 =head1 SYNOPSIS
 
