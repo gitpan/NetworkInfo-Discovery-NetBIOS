@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name: NetworkInfo-Discovery-NetBIOS
-version: 0.03
+version: 0.04
 author:
   - |-
     Sébastien Aperghis-Tramoni <sebastien@aperghis.net>
@@ -10,10 +10,11 @@ license: perl
 requires:
   Carp: 0
   Net::NBName: 0.25
+  Net::Netmask: 0
   NetworkInfo::Discovery: 0.12
   Test::More: 0
 provides:
   NetworkInfo::Discovery::NetBIOS:
     file: lib/NetworkInfo/Discovery/NetBIOS.pm
-    version: 0.03
-generated_by: Module::Build version 0.26
+    version: 0.04
+generated_by: Module::Build version 0.2607

@@ -11,6 +11,7 @@ WriteMakefile(
         'Carp' => 0,
         'NetworkInfo::Discovery' => 0.12, 
         'Net::NBName' => 0.25, 
+        'Net::Netmask' => 0, 
         'Test::More' => 0,
     },
     dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },

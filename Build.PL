@@ -10,6 +10,7 @@ my $builder = Module::Build->new(
         'Carp' => 0,
         'NetworkInfo::Discovery' => 0.12, 
         'Net::NBName' => 0.25, 
+        'Net::Netmask' => 0, 
         'Test::More' => 0,
     },
     add_to_cleanup      => [ 'NetworkInfo-Discovery-NetBIOS-*' ],

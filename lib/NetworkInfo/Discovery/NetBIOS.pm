@@ -6,7 +6,7 @@ use Net::Netmask;
 use NetworkInfo::Discovery::Detect;
 
 { no strict;
-  $VERSION = '0.03';
+  $VERSION = '0.04';
   @ISA = qw(NetworkInfo::Discovery::Detect);
 }
 
@@ -16,7 +16,7 @@ NetworkInfo::Discovery::NetBIOS - NetworkInfo::Discovery extension to find NetBI
 
 =head1 VERSION
 
-Version 0.03
+Version 0.04
 
 =head1 SYNOPSIS
 
@@ -139,11 +139,21 @@ sub hosts {
     if(ref $_[0] eq 'ARRAY') {
         push @{$self->{_hosts_to_scan}}, @{$_[0]}
     } elsif(ref $_[0]) {
-        croak "Don't know how to deal with a ", lc(ref($_[0])), "ref."
+        croak "fatal: Don't know how to deal with a ", lc(ref($_[0])), "ref."
     } else {
         push @{$self->{_hosts_to_scan}}, @_
     }
 }
+
+=back
+
+=head1 DIAGNOSTICS
+
+=over 4
+
+=item Don't know how to deal with a %sref.
+
+B<(F)> C<hosts()> was called with something it can't handle. 
 
 =back
 
